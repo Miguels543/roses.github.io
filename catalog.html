@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo - Roses Bienestar</title>
+  <meta name="description" content="Catálogo completo de productos naturales: aceites, colágeno, cacao, café y jabones artesanales.">
+  <link rel="stylesheet" href="assets/css/globals.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/catalog.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- SCRIPTS -->
+  <script src="assets/js/products.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-container">
+      <div class="logo">
+        Roses<span>.</span>
+      </div>
+      
+      <nav id="nav">
+        <a href="index.html">Inicio</a>
+        <a href="catalog.html">Catálogo</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
+      
+      <div class="header-cta">
+        <button class="cart-icon" id="cartBtn" title="Abrir carrito">
+          Cotizar <span id="ico">🛒</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+      
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1596394516093-501ba68352ba?w=1400&h=900&fit=crop'); margin-top: 60px; height: 50vh;">
+    <div class="hero-content">
+      <h1 class="fade-in">Catálogo de Bienestar</h1>
+      <p class="fade-in">Encuentra tu producto perfecto para nutrición y cuidado natural.</p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CATÁLOGO -->
+  <section class="section" style="background-color: var(--white);">
+    <div class="container">
+      <div class="catalog-layout">
+        <!-- Sidebar de Filtros -->
+        <aside class="filters-sidebar">
+          <div class="filters-scroll">
+            <div class="filter-group">
+              <h3 class="filter-title">Disponibilidad</h3>
+              <label class="filter-checkbox">
+                <input type="checkbox" id="inStockFilter" checked>
+                <span>En stock (<span id="inStockCount">4</span>)</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" id="outOfStockFilter">
+                <span>Agotado (<span id="outStockCount">0</span>)</span>
+              </label>
+            </div>
+
+            <div class="filter-group">
+              <h3 class="filter-title">Precio</h3>
+              <div class="price-range">
+                <div class="price-slider-container">
+                  <div class="slider-track" id="sliderTrack"></div>
+                  <input type="range" id="minPriceRange" min="0" max="999" value="0" step="1" class="price-slider">
+                  <input type="range" id="maxPriceRange" min="0" max="999" value="999" step="1" class="price-slider">
+                </div>
+                <div class="price-inputs">
+                  <div class="price-input-group">
+                    <span class="currency">S/</span>
+                    <input type="number" id="minPriceInput" value="0" min="0" max="999">
+                  </div>
+                  <div class="price-input-group">
+                    <span class="currency">S/</span>
+                    <input type="number" id="maxPriceInput" value="999" min="0" max="999">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h3 class="filter-title">Categoría</h3>
+              <label class="filter-checkbox">
+                <input type="checkbox" value="aceites" class="category-filter">
+                <span>Aceites</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" value="jabones" class="category-filter">
+                <span>Jabones</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" value="colageno" class="category-filter">
+                <span>Colágeno</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" value="cacaoycafe" class="category-filter">
+                <span>Cacao & Café</span>
+              </label>
+            </div>
+
+            <button class="btn btn-secondary" id="clearFilters" style="width: 100%;">
+              Limpiar Filtros
+            </button>
+          </div>
+        </aside>
+
+        <!-- Grid de productos -->
+        <div class="products-main">
+          <!-- Buscador en la parte superior -->
+          <div class="products-search">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar...">
+          </div>
+
+          <!-- Controles de ordenamiento y vista -->
+          <div class="products-header">
+            <div class="products-controls">
+              <select id="sortSelect" class="sort-select">
+                <option value="">Ordenar por: Destacados</option>
+                <option value="best-selling">Más vendido</option>
+                <option value="alphabetical-asc">Alfabéticamente, de la A a la Z</option>
+                <option value="alphabetical-desc">Por orden alfabético, Z-A</option>
+                <option value="price-asc">Precio, bajo a alto</option>
+                <option value="price-desc">Precio, de alto a bajo</option>
+                <option value="date-desc">Fecha, de lo antiguo a lo nuevo</option>
+                <option value="date-asc">Fecha, nuevo a viejo</option>
+              </select>
+
+              <div class="view-options">
+                <button class="view-btn" data-columns="2" title="2 columnas">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <rect x="2" y="2" width="7" height="7"></rect>
+                    <rect x="11" y="2" width="7" height="7"></rect>
+                    <rect x="2" y="11" width="7" height="7"></rect>
+                    <rect x="11" y="11" width="7" height="7"></rect>
+                  </svg>
+                </button>
+                <button class="view-btn active" data-columns="3" title="3 columnas">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <rect x="2" y="2" width="4" height="4"></rect>
+                    <rect x="8" y="2" width="4" height="4"></rect>
+                    <rect x="14" y="2" width="4" height="4"></rect>
+                    <rect x="2" y="8" width="4" height="4"></rect>
+                    <rect x="8" y="8" width="4" height="4"></rect>
+                    <rect x="14" y="8" width="4" height="4"></rect>
+                    <rect x="2" y="14" width="4" height="4"></rect>
+                    <rect x="8" y="14" width="4" height="4"></rect>
+                    <rect x="14" y="14" width="4" height="4"></rect>
+                  </svg>
+                </button>
+                <button class="view-btn" data-columns="4" title="4 columnas">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <rect x="2" y="2" width="3" height="3"></rect>
+                    <rect x="7" y="2" width="3" height="3"></rect>
+                    <rect x="12" y="2" width="3" height="3"></rect>
+                    <rect x="17" y="2" width="1" height="3"></rect>
+                    <rect x="2" y="7" width="3" height="3"></rect>
+                    <rect x="7" y="7" width="3" height="3"></rect>
+                    <rect x="12" y="7" width="3" height="3"></rect>
+                    <rect x="17" y="7" width="1" height="3"></rect>
+                    <rect x="2" y="12" width="3" height="3"></rect>
+                    <rect x="7" y="12" width="3" height="3"></rect>
+                    <rect x="12" y="12" width="3" height="3"></rect>
+                    <rect x="17" y="12" width="1" height="3"></rect>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="products-grid grid-3" id="productsGrid">
+            <!-- Los productos se cargan aquí con JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Sobre Roses</h4>
+        <p>Nutrición y cuidado natural de la más alta calidad. Comprometidos con tu bienestar.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <a href="tel:+51900000000">📞 +51 900 000 000</a>
+        <a href="https://wa.me/51900000000" target="_blank">💬 WhatsApp</a>
+        <a href="mailto:info@roses.com">✉️ info@roses.com</a>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Síguenos</h4>
+        <div class="social-links">
+          <a href="#" title="Instagram">📸</a>
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="TikTok">🎵</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Roses Bienestar. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">Producto</h2>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="" class="modal-image">
+        
+        <div class="modal-details">
+          <h3>Descripción</h3>
+          <p id="modalDesc">Producto premium Roses, elaborado con ingredientes naturales de la más alta calidad.</p>
+          
+          <div class="presentations-section">
+            <h3>Presentaciones Disponibles</h3>
+            <div id="presentationsContainer"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
+        <button class="btn btn-primary" onclick="addSelectedToCart()">Agregar a Cotización</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

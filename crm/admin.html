@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roses Bienestar CRM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/crm/css/admin.css" type="text/css" />
+  <script src="/crm/js/admin.js" defer></script>
+</head>
+
+<body class="admin-body">
+<div class="admin-container">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="sidebar-header">
+      <div class="logo-admin"><i class="fas fa-leaf"></i> <span>Roses</span></div>
+      <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="user-info">
+      <div class="user-avatar">R</div>
+      <div class="user-details">
+        <h3>Rosa Linda</h3>
+        <p>Administrador</p>
+      </div>
+    </div>
+
+    <nav class="admin-menu">
+      <a href="#dashboard" class="menu-item active" data-view="dashboard"><i class="fas fa-th-large"></i><span>Dashboard</span></a>
+      <a href="#productos" class="menu-item" data-view="products"><i class="fas fa-box"></i><span>Productos</span></a>
+      <a href="#" class="menu-item"><i class="fas fa-shopping-cart"></i><span>Ventas</span></a>
+      <a href="#" class="menu-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+      <a href="#" class="menu-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+      <a href="#" class="menu-item"><i class="fas fa-file-invoice"></i><span>Facturas</span></a>
+      <a href="#" class="menu-item"><i class="fas fa-user-tie"></i><span>Usuarios</span></a>
+      <a href="#" class="menu-item"><i class="fas fa-cog"></i><span>Configuración</span></a>
+    </nav>
+
+    <a href="#" class="menu-item logout"><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesión</span></a>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+      <h1 class="page-title" id="pageTitle">Dashboard</h1>
+      <div class="topbar-right">
+        <div class="current-date">
+          <i class="fas fa-calendar-alt"></i>
+          <span id="currentDate"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- DASHBOARD -->
+      <section id="view-dashboard" class="view active">
+        <section class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon sales"><i class="fas fa-arrow-up"></i></div>
+            <div class="stat-info"><h3>Ventas Totales</h3><p class="stat-value">12</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon income"><i class="fas fa-money-bill-wave"></i></div>
+            <div class="stat-info"><h3>Ingresos</h3><p class="stat-value">S/ 1,248.90</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon clients"><i class="fas fa-users"></i></div>
+            <div class="stat-info"><h3>Clientes</h3><p class="stat-value">28</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon products"><i class="fas fa-box-open"></i></div>
+            <div class="stat-info"><h3>Productos</h3><p class="stat-value" id="dashProductCount">0</p></div>
+          </div>
+        </section>
+
+        <div class="dashboard-grid">
+          <section class="dashboard-card">
+            <div class="card-header">
+              <h2 class="card-title"><i class="fas fa-chart-line"></i> Ventas Recientes</h2>
+            </div>
+            <div class="card-body">
+              <div class="sales-list">
+                <div class="sales-item">
+                  <div class="sales-info">
+                    <p class="sales-invoice">Factura #INV-001</p>
+                    <p class="sales-meta">Cliente: Ana López · 10 Feb 2026</p>
+                  </div>
+                  <div class="sales-amount">
+                    <p class="amount">S/ 89.90</p>
+                    <p class="items">3 ítems</p>
+                  </div>
+                </div>
+                <div class="sales-item">
+                  <div class="sales-info">
+                    <p class="sales-invoice">Factura #INV-002</p>
+                    <p class="sales-meta">Cliente: María Pérez · 09 Feb 2026</p>
+                  </div>
+                  <div class="sales-amount">
+                    <p class="amount">S/ 124.50</p>
+                    <p class="items">5 ítems</p>
+                  </div>
+                </div>
+                <div class="sales-item">
+                  <div class="sales-info">
+                    <p class="sales-invoice">Factura #INV-003</p>
+                    <p class="sales-meta">Cliente: Luis Torres · 08 Feb 2026</p>
+                  </div>
+                  <div class="sales-amount">
+                    <p class="amount">S/ 45.00</p>
+                    <p class="items">2 ítems</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="dashboard-card">
+            <div class="card-header">
+              <h2 class="card-title"><i class="fas fa-star"></i> Más Vendidos</h2>
+            </div>
+            <div class="card-body">
+              <div class="products-list">
+                <div class="product-item">
+                  <div class="product-number">1</div>
+                  <div class="product-name">Aceite de Rosa Mosqueta</div>
+                  <div class="product-quantity">42 und.</div>
+                </div>
+                <div class="product-item">
+                  <div class="product-number">2</div>
+                  <div class="product-name">Jabón de Cacao</div>
+                  <div class="product-quantity">38 und.</div>
+                </div>
+                <div class="product-item">
+                  <div class="product-number">3</div>
+                  <div class="product-name">Colágeno Marino</div>
+                  <div class="product-quantity">27 und.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- PRODUCTOS -->
+      <section id="view-products" class="view">
+
+        <div class="products-header">
+          <div class="products-header-left">
+            <h2>Catálogo de Productos</h2>
+            <span id="productsCount">0 productos registrados</span>
+          </div>
+          <button class="btn-add-product" id="btnAddProduct">
+            <i class="fas fa-plus"></i> Nuevo Producto
+          </button>
+        </div>
+
+        <div class="products-toolbar">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchProducts" placeholder="Buscar productos...">
+          </div>
+          <select class="filter-select" id="filterCategory">
+            <option value="">Todas las categorías</option>
+          </select>
+          <button type="button" class="btn-manage-cats-toolbar" id="btnManageCatsToolbar">
+            <i class="fas fa-tags"></i> Categorías
+          </button>
+        </div>
+
+        <div class="product-cards-grid" id="productCardsGrid">
+          <!-- Cards inyectadas por JS -->
+        </div>
+
+      </section>
+
+    </div><!-- /admin-content -->
+  </main>
+
+  <!-- LOADER -->
+  <div class="loading-overlay" id="pageLoader">
+    <i class="fas fa-leaf loader-icon"></i>
+  </div>
+
+  <!-- MODAL PRODUCTO -->
+  <div class="product-modal-overlay" id="productModalOverlay">
+    <div class="product-modal">
+      <div class="product-modal-header">
+        <h2 id="modalTitle">Nuevo Producto</h2>
+        <button class="modal-close" id="btnCloseModal"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="product-modal-body">
+        <form id="productForm">
+          <div class="form-row" style="margin-bottom:1.2rem;">
+            <div class="form-group">
+              <label>ID</label>
+              <input type="number" id="productId" disabled>
+            </div>
+            <div class="form-group">
+              <label>Nombre *</label>
+              <input type="text" id="productName" required placeholder="Ej: Aceite de Romero">
+            </div>
+          </div>
+
+          <div class="form-row" style="margin-bottom:1.2rem;">
+            <div class="form-group">
+              <label>Imagen *</label>
+              <div style="display:flex;gap:0.7rem;">
+                <input type="url" id="productImage" placeholder="URL de imagen" required style="flex:1;">
+                <input type="file" id="fileInput" accept="image/*" style="display:none;">
+                <button type="button" class="btn-upload-image" id="btnUploadImage">
+                  <i class="fas fa-cloud-upload-alt"></i> Subir
+                </button>
+              </div>
+              <div style="margin-top:0.75rem;">
+                <img id="imagePreview" src="" alt="Vista previa"
+                     style="max-width:160px;border-radius:10px;display:none;box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Categoría *</label>
+              <div class="category-field-wrapper">
+                <select id="productCategory" required>
+                  <option value="">-- Seleccionar --</option>
+                </select>
+                <button type="button" class="btn-manage-cats" id="btnManageCatsForm" title="Gestionar categorías">
+                  <i class="fas fa-tags"></i> Gestionar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:1.2rem;">
+            <label>Descripción *</label>
+            <textarea id="productDescription" rows="3" required placeholder="Descripción del producto..."></textarea>
+          </div>
+
+          <div class="form-row" style="margin-bottom:1.2rem;">
+            <div class="form-group">
+              <label>Stock *</label>
+              <input type="number" id="productStock" min="0" required placeholder="Ej: 50">
+            </div>
+            <div class="form-group">
+              <label>¿Destacar?</label>
+              <div class="checkbox-group">
+                <input type="checkbox" id="productBestSelling">
+                <label for="productBestSelling">Marcar como más vendido</label>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.5rem;">
+            <label class="presentations-label">Presentaciones *</label>
+            <div style="margin-top:0.7rem;" id="presentationsContainer"></div>
+            <button type="button" class="btn-add-presentation-modal" id="btnAddPresentation">
+              <i class="fas fa-plus"></i> Agregar Presentación
+            </button>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="btnCancelForm">Cancelar</button>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-save"></i> Guardar Producto
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /admin-container -->
+
+<!-- MODAL GESTIÓN DE CATEGORÍAS -->
+<div class="cat-modal-overlay" id="catModalOverlay">
+  <div class="cat-modal">
+    <div class="cat-modal-header">
+      <h2><i class="fas fa-tags"></i> Gestionar Categorías</h2>
+      <button class="modal-close" id="btnCloseCatModal"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cat-modal-body">
+      <div class="cat-add-row">
+        <input type="text" id="newCatInput" placeholder="Nueva categoría (ej: Cremas, Sueros...)" maxlength="40">
+        <button type="button" class="btn-cat-add" id="btnSaveCat">
+          <i class="fas fa-plus"></i> Agregar
+        </button>
+      </div>
+      <p class="cat-list-label">Categorías disponibles</p>
+      <div class="cat-chips-list" id="catChipsList">
+        <!-- Inyectado por JS -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+</body>
+</html>

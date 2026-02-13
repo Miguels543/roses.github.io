@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roses Bienestar - Nutrición y Cuidado Natural Premium</title>
+  <meta name="description" content="Aceites extra virgen, colágeno puro, cacao y café orgánico, jabones artesanales. Cuídate con intención.">
+  <link rel="stylesheet" href="assets/css/globals.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/index.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- SCRIPTS -->
+  <script src="assets/js/products.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-container">
+      <div class="logo">
+        Roses<span>.</span>
+      </div>
+      
+      <nav id="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="catalog.html">Catálogo</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
+      
+      <div class="header-cta">
+        <button class="cart-icon" id="cartBtn" title="Abrir carrito">
+          Cotizar <span id="ico">🛒</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+      
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="inicio" style="background-image: url('https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=1400&h=900&fit=crop');">
+    <div class="hero-content">
+      <h1 class="fade-in">Roses Bienestar</h1>
+      <p class="fade-in">Nutrición y Cuidado Natural Premium</p>
+      <p style="font-size: 1.1rem; opacity: 0.95; animation: slideUp 1s ease-out 0.4s forwards;" class="fade-in">Aceites extra virgen prensados en frío, colágeno puro, cacao y café orgánico, jabones artesanales.</p>
+      <a href="catalog.html" class="btn btn-primary fade-in" style="animation-delay: 0.8s;">Explorar Catálogo</a>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: CUIDARSE ES UN RITUAL -->
+  <section class="section" style="background-color: var(--white);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Cuidarse es un Ritual</h2>
+        <p>Cada producto Roses está diseñado con intención. Nutrición consciente, cuidado personal auténtico y rituales que reconectan con lo natural.</p>
+      </div>
+      
+      <div class="grid-3">
+        <div class="card scroll-reveal fade-in-1">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🌿</div>
+          <h3 style="color: var(--primary); margin-bottom: 0.5rem;">100% Natural</h3>
+          <p>Ingredientes puros, sin aditivos ni químicos. Solo lo que tu cuerpo merece.</p>
+        </div>
+        
+        <div class="card scroll-reveal fade-in-2">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">♻️</div>
+          <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Sostenible</h3>
+          <p>Prácticas responsables con el medio ambiente. Cuidar el planeta es parte del ritual.</p>
+        </div>
+        
+        <div class="card scroll-reveal fade-in-3">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
+          <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Calidad Premium</h3>
+          <p>Procesamiento artesanal, trazabilidad completa y excelencia en cada detalle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: PRODUCTOS ESTRELLA -->
+  <section class="section" style="background-color: var(--moss-light);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nuestros Productos Estrella</h2>
+        <p>Una selección curada de lo mejor en nutrición y cuidado natural.</p>
+      </div>
+      
+       <!-- Grid de productos -->
+      <div class="grid-4" id="productsGrid">
+        <!-- Los productos se cargan aquí con JavaScript -->
+      </div>
+      
+      <div class="text-center mt-lg">
+        <a href="catalog.html" class="btn btn-primary">Ver Catálogo Completo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: TESTIMONIOS -->
+  <section class="section" style="background-color: var(--white);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Lo Dicen Nuestros Clientes</h2>
+      </div>
+      
+      <div class="grid-3">
+        <div class="card scroll-reveal fade-in-1" style="border-left: 4px solid var(--primary);">
+          <p style="font-style: italic; margin-bottom: 1rem;">"Los productos Roses han cambiado mi rutina diaria. La calidad es inmejorable y el efecto es notorio desde la primera semana."</p>
+          <p style="font-weight: 600; color: var(--primary);">— María, Lima</p>
+        </div>
+        
+        <div class="card scroll-reveal fade-in-2" style="border-left: 4px solid var(--gold);">
+          <p style="font-style: italic; margin-bottom: 1rem;">"Combino el colágeno con el cacao y los resultados para mi piel y cabello son extraordinarios. Muy recomendado."</p>
+          <p style="font-weight: 600; color: var(--primary);">— Carlos, Arequipa</p>
+        </div>
+        
+        <div class="card scroll-reveal fade-in-3" style="border-left: 4px solid var(--primary);">
+          <p style="font-style: italic; margin-bottom: 1rem;">"Como distribuidora, confío 100% en Roses. Mis clientes vuelven siempre. Calidad y servicio impecable."</p>
+          <p style="font-weight: 600; color: var(--primary);">— Patricia, Cusco</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: CTA FINAL -->
+  <section class="section" style="background: linear-gradient(135deg, var(--primary), var(--brown-dark)); color: var(--white); text-align: center;">
+    <div class="container">
+      <h2 style="color: var(--white); margin-bottom: 1rem;">Comienza Tu Ritual de Bienestar Hoy</h2>
+      <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Explora nuestra colección premium y encuentra los productos perfectos para tu autocuidado consciente.</p>
+      <a href="catalog.html" class="btn btn-gold">Ir al Catálogo</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Sobre Roses</h4>
+        <p>Nutrición y cuidado natural de la más alta calidad. Comprometidos con tu bienestar y el del planeta.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <a href="tel:+51900000000">📞 +51 900 000 000</a>
+        <a href="https://wa.me/51900000000" target="_blank">💬 WhatsApp</a>
+        <a href="mailto:info@roses.com">✉️ info@roses.com</a>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Síguenos</h4>
+        <div class="social-links">
+          <a href="#" title="Instagram">📸</a>
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="TikTok">🎵</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Roses Bienestar. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">Producto</h2>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="" class="modal-image">
+        
+        <div class="modal-details">
+          <h3>Descripción</h3>
+          <p id="modalDesc">Producto premium Roses, elaborado con ingredientes naturales de la más alta calidad.</p>
+          
+          <div style="margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem;">Presentaciones Disponibles</h3>
+            <div id="presentationsContainer" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
+        <button class="btn btn-primary" onclick="addSelectedToCart()">Agregar a Cotización</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+</body>
+</html>
