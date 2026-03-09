@@ -258,13 +258,20 @@ function openCart() {
    FUNCIONES DE RENDERIZADO
    =============================================== */
 
+// DESPUÉS
 function renderProducts(filtered = products) {
   const grid = document.getElementById('productsGrid');
   if (!grid) return;
   
   grid.innerHTML = '';
   
-  filtered.forEach((product, index) => {
+  // En el index solo mostrar máximo 4 destacados
+  const isIndex = !document.getElementById('searchInput');
+  const list = isIndex
+    ? [...filtered].sort((a, b) => (b.bestSelling ? 1 : 0) - (a.bestSelling ? 1 : 0)).slice(0, 4)
+    : filtered;
+  
+  list.forEach((product, index) => {
     const minPrice = Math.min(...product.presentations.map(p => p.price));
     const card = document.createElement('div');
     card.className = 'product-card scroll-reveal';
