@@ -270,6 +270,7 @@ function renderProducts(filtered = products) {
     card.className = 'product-card scroll-reveal';
     card.style.animationDelay = (index % 4) * 0.1 + 's';
     card.innerHTML = `
+      ${product.bestSelling ? '<span class="badge-best"><i class="fas fa-star"></i> Destacado</span>' : ''}
       <img src="${product.image}" alt="${product.name}" class="product-image">
       <div class="product-info">
         <div class="product-type">${product.category.toUpperCase()}</div>
@@ -353,9 +354,8 @@ function applyFilters() {
   });
 
   // Aplicar ordenamiento
-  if (sortType) {
-    filtered = sortProducts(filtered, sortType);
-  }
+  filtered = sortProducts(filtered, sortType || 'best-selling');
+
 
   renderProducts(filtered);
   
