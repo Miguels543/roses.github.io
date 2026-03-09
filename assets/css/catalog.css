@@ -522,6 +522,21 @@
 .product-btn:hover { color: var(--white); border-color: var(--primary); }
 .product-btn:hover::before { transform: translateY(0); }
 
+.badge-best {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(135deg, #c9a96e, #a0784a);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
 /* Empty state */
 .catalog-empty {
   grid-column: 1 / -1;
