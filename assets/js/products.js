@@ -546,8 +546,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('productsGrid')) {
     renderProducts();
     setupFilterListeners();
+    
+    // Actualizar el contador inicial
+    const counter = document.getElementById('productsCount');
+    if (counter) counter.textContent = products.length;
   }
-  
   const cartBtn = document.getElementById('cartBtn');
   if (cartBtn) {
     cartBtn.addEventListener('click', openCart);
