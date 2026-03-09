@@ -654,6 +654,22 @@ nav a:hover { color: var(--primary); border-bottom-color: var(--primary); }
   border: 1px solid var(--border-light);
   display: flex;
   flex-direction: column;
+
+
+.badge-best {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(135deg, #c9a96e, #a0784a);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  z-index: 2;
+  text-transform: uppercase;
+}
 }
 .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
 
