@@ -68,6 +68,7 @@ function initializeProducts() {
     products = JSON.parse(saved);
   } else {
     products = JSON.parse(JSON.stringify(defaultProducts));
+    localStorage.setItem('rosesProducts', JSON.stringify(products)); 
   }
 }
 
