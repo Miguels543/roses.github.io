@@ -40,10 +40,88 @@ function ensureDemoProducts() {
   const maxId = allProducts.length > 0 ? Math.max(...allProducts.map(p => p.id || 0)) : 0;
 
   const DEMO = [
-    { id: maxId + 1, name: 'Aceite de Rosa Mosqueta',  image: 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&q=80', category: 'aceites',  description: 'Aceite natural de rosa mosqueta, ideal para regenerar la piel y reducir cicatrices.',       stock: 42, bestSelling: true,  presentations: [{ name:'30ml', price:28 }, { name:'60ml', price:48 }],   dateAdded:'2026-01-01' },
-    { id: maxId + 2, name: 'Jabón de Cacao Artesanal', image: 'https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=400&q=80', category: 'jabones',  description: 'Jabón artesanal con manteca de cacao. Hidrata y suaviza la piel profundamente.',         stock: 38, bestSelling: false, presentations: [{ name:'100g', price:15 }, { name:'200g', price:25 }],  dateAdded:'2026-01-05' },
-    { id: maxId + 3, name: 'Colágeno Marino Premium',  image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&q=80', category: 'colageno', description: 'Colágeno marino de alta absorción para piel firme y articulaciones saludables.',         stock: 27, bestSelling: true,  presentations: [{ name:'150g', price:65 }, { name:'300g', price:115 }], dateAdded:'2026-01-08' },
-  ];
+  {
+    id: 1,
+    name: 'Aceite Extra Virgen de Ajonjolí',
+    category: 'aceites',
+    image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop',
+    description: 'Aceite premium prensado en frío. Ideal para cocinar y rituales de cuidado capilar.',
+    presentations: [
+      { name: '120ml', price: 30.00 },
+      { name: '500ml', price: 54.00 },
+      { name: '1L', price: 105.00 }
+    ],
+    stock: 45,
+    bestSelling: true,
+    dateAdded: '2025-01-15'
+  },
+  {
+    id: 2,
+    name: 'Jabón Natural de Aloe Vera',
+    category: 'jabones',
+    image: 'https://tse2.mm.bing.net/th/id/OIP.o0rIDwAcAp3EmFQvffrX4QHaHa?rs=1&pid=ImgDetMain&o=7&rm=3',
+    description: 'Regenerador e hidratante. Suave para piel sensible.',
+    presentations: [{ name: 'Unidad', price: 18.00 }],
+    stock: 32,
+    bestSelling: false,
+    dateAdded: '2025-01-20'
+  },
+  {
+    id: 3,
+    name: 'Jabón Natural de Arroz',
+    category: 'jabones',
+    image: 'https://media.redfarma.es/product/jabon-natural-premium-arroz-100g-800x800.jpg',
+    description: 'Aclarante natural. Ilumina y rejuvenece la piel.',
+    presentations: [{ name: 'Unidad', price: 18.00 }],
+    stock: 28,
+    bestSelling: true,
+    dateAdded: '2025-02-01'
+  },
+  {
+    id: 4,
+    name: 'Jabón Natural de Anís',
+    category: 'jabones',
+    image: 'https://tse1.explicit.bing.net/th/id/OIP.vr4FcGcXI-TkKKOHu3hHTwHaIa?rs=1&pid=ImgDetMain&o=7&rm=3',
+    description: 'Purificante y refrescante. Aroma natural agradable.',
+    presentations: [{ name: 'Unidad', price: 18.00 }],
+    stock: 50,
+    bestSelling: false,
+    dateAdded: '2025-01-10'
+  },
+  {
+    id: 5,
+    name: 'Aceite de Rosa Mosqueta',
+    category: 'aceites',
+    image: 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&q=80',
+    description: 'Aceite natural de rosa mosqueta, ideal para regenerar la piel y reducir cicatrices.',
+    presentations: [{ name: '30ml', price: 28 }, { name: '60ml', price: 48 }],
+    stock: 42,
+    bestSelling: true,
+    dateAdded: '2026-01-01'
+  },
+  {
+    id: 6,
+    name: 'Jabón de Cacao Artesanal',
+    category: 'jabones',
+    image: 'https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=400&q=80',
+    description: 'Jabón artesanal con manteca de cacao. Hidrata y suaviza la piel profundamente.',
+    presentations: [{ name: '100g', price: 15 }, { name: '200g', price: 25 }],
+    stock: 38,
+    bestSelling: false,
+    dateAdded: '2026-01-05'
+  },
+  {
+    id: 7,
+    name: 'Colágeno Marino Premium',
+    category: 'colageno',
+    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&q=80',
+    description: 'Colágeno marino de alta absorción para piel firme y articulaciones saludables.',
+    presentations: [{ name: '150g', price: 65 }, { name: '300g', price: 115 }],
+    stock: 27,
+    bestSelling: true,
+    dateAdded: '2026-01-08'
+  }
+];
 
   DEMO.forEach(demo => {
     if (!allProducts.some(p => p.name === demo.name)) allProducts.push(demo);
