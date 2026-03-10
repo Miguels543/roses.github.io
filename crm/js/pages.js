@@ -32,10 +32,6 @@ function saveUsers()    { localStorage.setItem('rosesUsers',    JSON.stringify(a
    Detecta por NOMBRE para funcionar aunque el localStorage
    ya tenga datos con otros IDs en ese dispositivo. */
 function ensureDemoProducts() {
-  const DEMO_NAMES = ['Aceite de Rosa Mosqueta', 'Jabón de Cacao Artesanal', 'Colágeno Marino Premium'];
-  // Si ya están los 3, no hacer nada
-  if (DEMO_NAMES.every(n => allProducts.some(p => p.name === n))) return;
-
   // IDs seguros que no choquen con los existentes
   const maxId = allProducts.length > 0 ? Math.max(...allProducts.map(p => p.id || 0)) : 0;
 
