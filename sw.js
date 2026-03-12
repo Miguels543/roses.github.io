@@ -24,14 +24,16 @@ const ASSETS_TO_CACHE = [
   '/roses.github.io/assets/css/catalog.css',
   '/roses.github.io/assets/css/cart.css',
   '/roses.github.io/assets/css/contact.css',
-  '/roses.github.io/assets/css/admin.css',
+  '/roses.github.io/crm/css/admin.css',
+  '/roses.github.io/crm/css/page.css'
 
   // JS
   '/roses.github.io/assets/js/main.js',
   '/roses.github.io/assets/js/catalog.js',
   '/roses.github.io/assets/js/cart.js',
   '/roses.github.io/assets/js/contact.js',
-  '/roses.github.io/assets/js/admin.js',
+  '/roses.github.io/crm/js/admin.js',
+  '/roses.github.io/crm/js/page.js'
 
   // Imágenes / íconos (agrega aquí las tuyas)
   // '/roses.github.io/assets/img/logo.png',
