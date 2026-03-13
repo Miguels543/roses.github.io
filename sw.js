@@ -23,17 +23,22 @@ const ASSETS_TO_CACHE = [
   '/roses.github.io/assets/css/main.css',
   '/roses.github.io/assets/css/catalog.css',
   '/roses.github.io/assets/css/cart.css',
+  '/roses.github.io/assets/css/checkout.css',
   '/roses.github.io/assets/css/contact.css',
+  '/roses.github.io/assets/css/globals.css',
+  '/roses.github.io/assets/css/index.css',
   '/roses.github.io/crm/css/admin.css',
-  '/roses.github.io/crm/css/page.css'
+  '/roses.github.io/crm/css/page.css',
 
   // JS
-  '/roses.github.io/assets/js/main.js',
-  '/roses.github.io/assets/js/catalog.js',
+  '/roses.github.io/assets/js/animations.js',
   '/roses.github.io/assets/js/cart.js',
   '/roses.github.io/assets/js/contact.js',
+  '/roses.github.io/assets/js/nav.js',
+  '/roses.github.io/assets/js/products.js',
+  '/roses.github.io/assets/js/toast.js',
   '/roses.github.io/crm/js/admin.js',
-  '/roses.github.io/crm/js/page.js'
+  '/roses.github.io/crm/js/page.js',
 
   // Imágenes / íconos (agrega aquí las tuyas)
   // '/roses.github.io/assets/img/logo.png',
@@ -46,14 +51,11 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('[SW] Cacheando archivos…');
-      // addAll falla si UN archivo no existe → usa el bloque
-      // individual para tolerar archivos opcionales
       return cache.addAll(ASSETS_TO_CACHE).catch((err) => {
         console.warn('[SW] Algunos archivos no se cachearon:', err);
       });
     })
   );
-  // Activa el SW nuevo sin esperar que se cierren las pestañas
   self.skipWaiting();
 });
 
@@ -72,30 +74,24 @@ self.addEventListener('activate', (event) => {
       )
     )
   );
-  // Toma control de todas las páginas abiertas inmediatamente
   self.clients.claim();
 });
 
 // ── FETCH: estrategia Cache-First con fallback a red ────────
 self.addEventListener('fetch', (event) => {
-  // Solo intercepta peticiones GET
   if (event.request.method !== 'GET') return;
 
-  // Ignora peticiones a otros orígenes (CDN externos, etc.)
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
 
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
-        // ✅ Está en caché → devuelve inmediatamente (offline OK)
         return cachedResponse;
       }
 
-      // 🌐 No está en caché → intenta la red y guarda la respuesta
       return fetch(event.request)
         .then((networkResponse) => {
-          // Solo cachea respuestas válidas
           if (
             !networkResponse ||
             networkResponse.status !== 200 ||
@@ -104,7 +100,6 @@ self.addEventListener('fetch', (event) => {
             return networkResponse;
           }
 
-          // Clona porque el body solo se puede leer una vez
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseToCache);
@@ -113,7 +108,6 @@ self.addEventListener('fetch', (event) => {
           return networkResponse;
         })
         .catch(() => {
-          // ❌ Sin red y sin caché → página de fallback
           if (event.request.destination === 'document') {
             return caches.match('/roses.github.io/index.html');
           }
